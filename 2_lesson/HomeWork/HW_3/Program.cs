@@ -2,12 +2,11 @@
 
 string SecondNumber(int num)
 {
-    if((num > 99)&(num < 999))
-        return $"{num % 10}";
-        if(num < 100)
-            return "третьей цифры нет";
+    if(num > 99) 
+        int num = ToString();
+        return $"{num[3]}";
     else
-        return "Не трехзначное";
+        return "Третьей цифры нет";
 }
 
 Console.WriteLine("Write number: ");
