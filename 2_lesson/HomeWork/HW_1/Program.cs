@@ -6,7 +6,6 @@ string SecondNum(int num)
         return $"{(num / 10) % 10}";
     else
         return "Не трехзначное число";
-
 }
 
 Console.WriteLine("Write number: ");
