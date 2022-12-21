@@ -1,15 +1,16 @@
 ﻿// Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 
-string SecondNumber(int num)
+void SecondNumber(int num)
 {
-    if(num > 99) 
-        int num = ToString();
-        return $"{num[3]}";
-    else
-        return "Третьей цифры нет";
+    if(num < 100) 
+    {
+        Console.WriteLine("Третьей цифры нет");
+        return;
+    }
+    
+    while(num > 999) num /=10;
+    Console.WriteLine(num % 10); 
 }
 
-Console.WriteLine("Write number: ");
-int number = int.Parse(Console.ReadLine());
-
-Console.WriteLine(SecondNumber(number));
+Console.Write("Введите число: ");
+SecondNumber(int.Parse(Console.ReadLine()));
