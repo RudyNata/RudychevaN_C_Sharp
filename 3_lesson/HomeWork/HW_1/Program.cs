@@ -2,11 +2,12 @@
 
 string Polindrom (int Num)
 {
-    if(Num / 10000 == Num % 10 && (Num / 1000) % 10 == (Num / 10) % 10);
+    if(Num < 10000 || Num > 99999)
+        return "Not a five digit number";
+    else if(Num / 10000 == Num % 10 && (Num / 1000) % 10 == (Num / 10) % 10)
         return "Number is polindrom";
     else
-        return "Not a five digit number";
-       
+        return "Number isn't polindrom";
 }
 
-Polindrom(int.Parse(Console.ReadLine()));
+Console.WriteLine(Polindrom(int.Parse(Console.ReadLine())));
