@@ -2,14 +2,11 @@
 
 void SquareNumber(int N)
 {
-    int i = 0;
-    while(i <= N)
+    for(int i = 1; i <= N; i++)
     {
         double SqrN = Math.Pow(i, 2);
-        i++;
         Console.Write($"{SqrN}, ");
-    }
-    
+    }   
 }
 
 SquareNumber(int.Parse(Console.ReadLine()));
