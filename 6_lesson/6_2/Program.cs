@@ -2,12 +2,11 @@
 
 string Binary(int num)
 {
-    int rem_num = num;
     string binary_num = "";
-    while (rem_num > 0)
+    while (num > 0)
     {
         binary_num = $"{rem_num % 2}" + binary_num;
-        rem_num = rem_num / 2;
+        num = num / 2;
     }
     return binary_num; ;
 }
