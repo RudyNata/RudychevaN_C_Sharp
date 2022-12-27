@@ -1,7 +1,7 @@
 ﻿// 3. Задайте массив вещественных чисел. Найдите разницу 
 // между максимальным и минимальным элементов массива.
 
-void PrintArray(int[] collection)
+void PrintArray(double[] collection)
 {
     int count = collection.Length;
     for (int position = 0; position < count; position++)
@@ -11,20 +11,21 @@ void PrintArray(int[] collection)
     Console.WriteLine();
 }
 
-int[] FillArray(int massiv)
+double[] FillArray(int massiv, int from, int to)
 {
-    int[] arr = new int[massiv];
+    double[] arr = new double[massiv];
+    Random n_new = new Random();
     for (int index = 0; index < massiv; index++)
     {
-        arr[index] = new Random().Next(-100, 100);
+        arr[index] = Math.Round(n_new.NextDouble() * (from + to) - from, 2);
     }
     return arr;
 }
 
-int Diff(int[] array)
+double Diff(double[] array)
 {
-    int max = 0;
-    int min = 0;
+    double max = array[0];
+    double min = array[0];
 
     for (int i = 0; i < array.Length; i += 1)
     {
@@ -34,11 +35,13 @@ int Diff(int[] array)
             min = array[i];
     }
 
-    int difference = max - min;
+    double difference = max - min;
     return difference;
 
 }
 
-int[] arr_1 = FillArray(int.Parse(Console.ReadLine()));
+double[] arr_1 = FillArray(int.Parse(Console.ReadLine()),
+                                int.Parse(Console.ReadLine()),
+                                int.Parse(Console.ReadLine()));
 PrintArray(arr_1);
 Console.WriteLine(Diff(arr_1));
