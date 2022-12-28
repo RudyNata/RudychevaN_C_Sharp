@@ -19,11 +19,11 @@
 int Num(int number)
 {
     int count = 0;
-    for(int i = 1; i <= number; i++)
+    for (int i = 1; i <= number; i++)
     {
         int some_num = int.Parse(Console.ReadLine());
-        if(some_num > 0)
-           count++;
+        if (some_num > 0)
+            count++;
     }
     return count;
 }
