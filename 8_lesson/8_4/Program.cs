@@ -10,7 +10,7 @@ void Print(int[,] arr)
     for (int i = 0; i < row_size; i++)
     {
         for (int j = 0; j < column_size; j++)
-            Console.Write($" {arr[i,j], 4} ");
+            Console.Write($" {arr[i, j],4} ");
         Console.WriteLine();
     }
     Console.WriteLine();
@@ -28,30 +28,40 @@ int[,] MassNums(int row, int column, int from, int to)
     return arr;
 }
 
-void MinNum(int[,] arr)
+int[] MinEl(int[,] arr)
 {
-    int row_size = arr.GetLength(0);
-    int column_size = arr.GetLength(1);
-    (int, int) min = (0, 0);
+    int row = arr.GetLength(0);
+    int column = arr.GetLength(1);
+    int min_num = arr[0, 0];
+    int[] indexes = new int[2];
 
-    for (int i = 0; i < row_size; i++)
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < column_size; j++)
+        for (int j = 0; j < column; j++)
+            if (min_num > arr[i, j])
             {
-                if(arr[min.Item1, min.Item2] >= arr[i, j]);
-                    min = (i,j);
+                min_num = arr[i, j];
+                indexes[0] = i;
+                indexes[1] = j;
             }
     }
-    for (int i = 0; i < row_size; i++)
+    Console.WriteLine(arr[indexes[0], indexes[1]]);
+    return indexes;
+}
+
+void WithoutRowColumn(int[,] arr, int[] m_indexes)
+{
+    int row = arr.GetLength(0);
+    int column = arr.GetLength(1);
+
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < column_size; j++)
-        {
-            if(i == min.Item1 | j == min.Item2) continue;
-            Console. Write($"{arr[i,j]} ");
-        }
+        for (int j = 0; j < column; j++)
+            if (m_indexes[0] == i || m_indexes[1] == j) continue;
+            else Console.Write($"{arr[i, j],3}");
         Console.WriteLine();
     }
-
+    Console.WriteLine();
 }
 
 Console.Write("Row: ");
@@ -60,8 +70,8 @@ int row = int.Parse(Console.ReadLine());
 Console.Write("Column: ");
 int column = int.Parse(Console.ReadLine());
 
-int[,] array = MassNums(row, column, 
+int[,] array = MassNums(row, column,
                             int.Parse(Console.ReadLine()),
                             int.Parse(Console.ReadLine()));
 Print(array);
-MinNum(array);
+WithoutRowColumn(array, MinEl(array));
