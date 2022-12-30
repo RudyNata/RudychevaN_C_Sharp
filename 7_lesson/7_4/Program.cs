@@ -37,7 +37,7 @@ string Search(int[,] arr)
     {
         for (int j = 0; j < column_size; j++)
             if (arr[i, j] == some_num)
-                return $"[{i}, {j}]";
+                return $"[{i + 1}, {j + 1}]";
     }
     return "No number";
 }
