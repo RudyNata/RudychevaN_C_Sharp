@@ -1,5 +1,5 @@
-﻿// Задайте двумерный массив. Напишите программу, которая упорядочит
-// по убыванию элементы каждой строки двумерного массива.
+﻿// 2. Задайте прямоугольный двумерный массив. Напишите программу,
+// которая будет находить строку с наименьшей суммой элементов.
 
 void Print(int[,] arr)
 {
@@ -27,21 +27,23 @@ int[,] MassNums(int row, int column, int from, int to)
     return arr;
 }
 
-int[,] RegArr(int[,] arr)
+void Min(int[,] arr)
 {
     int row_size = arr.GetLength(0);
     int column_size = arr.GetLength(1);
-
+    int small = 0;
     for (int i = 0; i < row_size; i++)
     {
+        int sum = 0;
         for (int j = 0; j < column_size; j++)
         {
-            for (int z = 0; z < column_size - j - 1; z++)
-                if (arr[i, z] < arr[i, z + 1])
-                    (arr[i, j], arr[i, z + 1]) = (arr[i, z + 1], arr[i, j]);
+            sum = sum + arr[i,j];
         }
+        if(sum > small)
+            small = i;
     }
-    return arr;
+    Console.WriteLine();
+    Console.WriteLine($"Smallest: {small + 1}");
 }
 
 Console.Write("Row: ");
@@ -54,5 +56,4 @@ int[,] array = MassNums(row, column,
                             int.Parse(Console.ReadLine()),
                             int.Parse(Console.ReadLine()));
 Print(array);
-RegArr(array);
-Print(array);
+Min(array);
