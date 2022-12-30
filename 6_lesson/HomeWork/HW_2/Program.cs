@@ -5,8 +5,8 @@
 // Ответ не сходится, хотя если считать вручную все получается. Непонятно, как x получается 0.
 string Uravnenie(int k1, int b1, int k2, int b2)
 {
-    int x = (b2 - b1) / (k1 - k2);
-    int y = k2 * x + b2;
+    double x = (b2 - b1) / (k1 - k2);
+    double y = k2 * x + b2;
     return $"({x}, {y})";
 }
 
