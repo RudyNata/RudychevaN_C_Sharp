@@ -27,6 +27,23 @@ int[,] MassNums(int row, int column, int from, int to)
     return arr;
 }
 
+// int[,] RegArr(int[,] arr)
+// {
+//     int row_size = arr.GetLength(0);
+//     int column_size = arr.GetLength(1);
+
+//     for (int i = 0; i < row_size; i++)
+//     {
+//         for (int j = 0; j < column_size; j++)
+//         {
+//             for (int z = 0; z < column_size - j - 1; z++)
+//                 if (arr[i, z] < arr[i, z + 1])
+//                     (arr[i, j], arr[i, z + 1]) = (arr[i, z + 1], arr[i, j]);
+//         }
+//     }
+//     return arr;
+// }
+
 int[,] RegArr(int[,] arr)
 {
     int row_size = arr.GetLength(0);
@@ -36,9 +53,10 @@ int[,] RegArr(int[,] arr)
     {
         for (int j = 0; j < column_size; j++)
         {
-            for (int z = 0; z < column_size - j - 1; z++)
-                if (arr[i, z] < arr[i, z + 1])
-                    (arr[i, j], arr[i, z + 1]) = (arr[i, z + 1], arr[i, j]);
+                int remember = arr[i, j];
+                if(arr[i,j] > arr[i, j + 1] && arr[i, j + 1] != null)
+                    arr[i, j] = arr[i, j + 1];
+                    arr[i, j + 1] = remember;
         }
     }
     return arr;
