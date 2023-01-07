@@ -53,10 +53,8 @@ int[,] RegArr(int[,] arr)
     {
         for (int j = 0; j < column_size; j++)
         {
-                int remember = arr[i, j];
-                if(arr[i,j] > arr[i, j + 1] && arr[i, j + 1] != null)
-                    arr[i, j] = arr[i, j + 1];
-                    arr[i, j + 1] = remember;
+            if((j + 1) <= column_size && arr[i,j] > arr[i, j + 1])
+                (arr[i, j], arr[i, j + 1]) = (arr[i, j + 1], arr[i, j]);
         }
     }
     return arr;
